@@ -6,6 +6,7 @@ Created on Fri Dec 13 13:26:25 2019
 @author: molly199
 """
 import matplotlib.pyplot as plt
+plt.style.use('seaborn-poster')
 import numpy as np
 from scipy.interpolate import griddata
 
@@ -35,8 +36,11 @@ def plot_contour(x,y,z,resolution = 100, contour_method = 'linear'):
 Xp,Yp,P = plot_contour(x,y,p)
 
 #Plot Pressure
-plt.contourf(Xp,Yp,P)
+plt.contourf(Xp,Yp,P,cmap='viridis')
 plt.title('Contour Plot of Pressure')
+plt.xlabel('X Value')
+plt.ylabel('Y Value')
+plt.colorbar()
 plt.savefig('PressureContour.png')
 plt.show()
 
@@ -44,8 +48,12 @@ plt.show()
 Xu,Yu,U = plot_contour(x,y,u)
 
 #Plot U
-plt.contourf(Xu,Yu,U)
+plt.contour(Xu,Yu,U,250,cmap='viridis')
+plt.xlabel('X Value')
+plt.ylabel('Y Value')
+plt.colorbar()
 plt.title('Contour Plot of U Velocity')
+plt.grid(False)
 plt.savefig('VelocityContour.png')
 plt.show()
 
